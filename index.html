@@ -1,0 +1,272 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title class="locale">Password Protected Form</title>
+  <style>
+    body {
+      font-size: 17px;
+      font-weight: 400;
+      font-family: "Circular Std Book", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      padding: 0;
+      margin: 0;
+      background: #0c2021;
+    }
+
+    .pp-form-page-wrapper {
+      max-width: 100%;
+      padding-top: 10%;
+    }
+
+    .pp-form-wrapper {
+      top: 20%;
+      background: white;
+      margin: 0 auto;
+      padding: 10px 25px;
+      padding-bottom: 0px;
+      height: 350px;
+      width: 70%;
+      max-width: 480px;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .pp-form-wrapper > * {
+      margin: 5px
+    }
+
+    .pp-form-logo {
+      height: 60px;
+      width: 60px;
+      margin-bottom: 10px;
+    }
+
+    .pp-form-description {
+      text-align: center;
+      color: #575454;
+    }
+
+    .pp-form-title {
+      font-weight: 500;
+      text-align: center;
+      color: #000;
+    }
+
+    .pp-button {
+      height: 40px;
+      width: 180px;
+      background: #00be6c;
+      color: white;
+      text-align: center;
+      font-size: 1em;
+      border: none;
+      border-radius: 2px;
+    }
+
+    .pp-input-wrapper {
+      width: 100%;
+      margin: 20px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+
+    }
+
+    .pp-input {
+      width:100%;
+      border: 1px solid #bbbec4;
+      border-radius: 2px;
+      font-size: 17px;
+      height: 46px;
+      font-weight: 400;
+      padding-left: 10px;
+      padding-right: 30px;
+    }
+
+    .pp-input::placeholder {
+      color: #ccccd9;
+      font-size: 17px;
+    }
+    .pp-input:focus {
+      outline: 0;
+    }
+
+    .pp-error-message {
+      display: none;
+      position: absolute;
+      top: 48px;
+      left: 2px;
+      font-size: 12px;
+      color: #c20606;
+    }
+
+    .pp-input-wrapper.error > .pp-error-message {
+      display: initial;
+    }
+
+    .pp-input-wrapper.error > .pp-input  {
+      border-color: #c20606;
+    }
+
+    .pp-show-password {
+      height: 45px;
+      width: 32px;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .pp-show-password:hover {
+      cursor: pointer;
+    }
+
+    .pp-show-password .pp-eye {
+      position: absolute;
+      right: 8px;
+      top: 12.5px;
+    }
+
+    .pp-show-password .pp-eye-off {
+      display: none;
+      position: absolute;
+      right: 8px;
+      top: 12.5px;
+    }
+
+    .pp-show-password > span > svg {
+      fill: #bbbec4;
+      height: 20px;
+      width: 20px;
+    }
+
+    .pp-show-password.show .pp-eye-off {
+      display: initial;
+    }
+
+    .pp-show-password.show .pp-eye {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="pp-form-page-wrapper">
+    <div class="pp-form-wrapper">
+      <div class="pp-form-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64.334" height="64.997" viewBox="0 0 64.334 64.997"><defs><style>.a{fill:none;}.b{clip-path:url(#a);}.c,.e{fill:#cdcdda;}.c{stroke:#cdcdda;}.d{fill:#fff;}</style><clipPath id="a"><rect class="a" width="64.334" height="64.997"/></clipPath></defs><g class="b"><path class="c" d="M5.923,0H34.769a2.036,2.036,0,0,1,1.923,2.133V17.066A2.036,2.036,0,0,0,38.615,19.2H52.077A2.036,2.036,0,0,1,54,21.332V61.864A2.036,2.036,0,0,1,52.077,64H5.923A2.036,2.036,0,0,1,4,61.864V2.133A2.036,2.036,0,0,1,5.923,0Zm37.9,3.642,6.9,7.649a2.3,2.3,0,0,1,0,3.017,1.832,1.832,0,0,1-1.36.625h-6.9A2.036,2.036,0,0,1,40.538,12.8V5.15a2.036,2.036,0,0,1,1.923-2.133A1.832,1.832,0,0,1,43.821,3.642Z" transform="translate(-3.5 0.5)"/><rect class="d" width="24" height="3" rx="1.5" transform="translate(5.834 16.5)"/><rect class="d" width="39.185" height="3" rx="1.5" transform="translate(5.834 26.5)"/><rect class="d" width="39.185" height="3" rx="1.5" transform="translate(5.834 36.5)"/><rect class="d" width="39.185" height="3" rx="1.5" transform="translate(5.834 46.5)"/><g transform="translate(-148.166 -88.5)"><circle class="d" cx="12.25" cy="12.25" r="12.25" transform="translate(188 118)"/><g transform="translate(193.359 120.297)"><g transform="translate(0)"><path class="e" d="M76.252,6.475V5.036a5.036,5.036,0,0,0-10.073,0V6.475Zm-2.158,0H68.338V5.036a2.878,2.878,0,1,1,5.756,0Z" transform="translate(-64.08)"/><path class="e" d="M10.525,13.2H4a4.005,4.005,0,0,1-4-4V2A2,2,0,0,1,2,0H12.524a2,2,0,0,1,2,2V9.2A4,4,0,0,1,10.525,13.2ZM7.262,3.961A2.641,2.641,0,1,0,9.9,6.6,2.644,2.644,0,0,0,7.262,3.961Z" transform="translate(0 6.064)"/></g></g></g></g></svg>
+      </div>
+      <h1 class="pp-form-title locale">Login</h1>
+      <p class="pp-form-description locale"></p>
+      <div class="pp-input-wrapper"> <!-- toggle class 'error' -->
+        <input placeholder="Enter form password" class="locale-data-placeholder pp-input" type="password" name="password" id="pp-inpt" autofocus>
+        <span class="pp-show-password" role="button"> <!-- toggle class 'show' -->
+          <span class="pp-eye">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>eye</title><g id="eye"><path id="eye-2" data-name="eye" d="M12,3C5.373,3,0,10.5,0,12s5.373,9,12,9,12-7.5,12-9S18.627,3,12,3Zm0,13a4,4,0,1,1,4-4A4,4,0,0,1,12,16Z"/></g></svg>
+          </span>
+          <span class="pp-eye-off">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>eye-off</title><g id="eye-off"><path id="eye-off-2" data-name="eye-off" d="M19.411,18C22.2,15.729,24,12.866,24,12c0-1.5-5.373-9-12-9A10.935,10.935,0,0,0,6.235,4.821L1.707.293A1,1,0,0,0,.293,1.707l22,22a1,1,0,0,0,1.414-1.414ZM15.44,14.025,9.975,8.561A3.922,3.922,0,0,1,12,8a4,4,0,0,1,4,4A3.93,3.93,0,0,1,15.44,14.025ZM9,14.624,2.437,8.058C.914,9.76,0,11.385,0,12c0,1.5,5.373,9,12,9a9.556,9.556,0,0,0,2.9-.482L9.376,15A3.979,3.979,0,0,1,9,14.624Z"/></g></svg>
+          </span>
+        </span>
+        <span class="pp-error-message locale" aria-relevant="all" aria-atomic="true" aria-live="assertive">Invalid Password</span>
+      </div>
+      <button class="pp-button locale">Login</button>
+    </div>
+  </div>
+
+  <script>
+    var eyeButton = document.querySelector('.pp-show-password');
+    var inputField = document.querySelector('.pp-input');
+    var submitButton = document.querySelector('.pp-button');
+
+    var formID = '240583169179062';
+    var baseURL = 'https://www.jotform.com';
+
+    function eyeClickHandler(e) {
+      eyeButton.classList.toggle("show");
+      var isInputPassword = inputField.type === 'password';
+      eyeButton.setAttribute('aria-label', isInputPassword ? 'Hide Password' : 'Show Password');
+      inputField.type = isInputPassword ? 'text' : 'password';
+    }
+
+    function toggleError(show, message) {
+      var errorMsgEl = document.querySelector('.pp-error-message');
+      var inputWrapperEl = document.querySelector('.pp-input-wrapper');
+      if (show) {
+        errorMsgEl.innerHTML = message;
+        inputWrapperEl.classList.add('error');
+      } else {
+        errorMsgEl.innerHTML = '';
+        inputWrapperEl.classList.remove('error');
+      }
+    }
+
+    function setCookie(token) {
+      var now = new Date();
+      var minutes = 30;
+      now.setTime(now.getTime() + (minutes * 60 * 1000));
+      var expires = 'expires=' + now.toUTCString() + ';'
+      var domain = 'domain=.'+baseURL.split(/\.(.+)/)[1]+';';
+      var path = 'path=/; SameSite=None; Secure';
+
+      document.cookie = 'formPassword-' + formID + '=' + token + ';' + expires + domain + path;
+    }
+
+    function submitRequest(e) {
+      if ((e.type === 'keypress' && e.keyCode === 13) || e.type === 'click') {
+        var password = inputField.value.trim();
+        var req = new XMLHttpRequest();
+        var searchParams = window.location.search;
+        req.onreadystatechange = function() {
+          if (this.readyState === this.DONE) {
+            var response = JSON.parse(this.responseText);
+
+            if (this.status === 200 && response.success === true) {
+              toggleError(false);
+              // set cookie formPassword-formId=token
+              setCookie(response.token);
+
+              /**
+               * Safari on iOS doesn't allow cookies to be set in an iframe except visiting the iframe url
+               * directly. So we need to redirect the user to the form url with the token as a query param.
+               */
+              var isEmbed = window.parent && window.parent !== window;
+              if (isEmbed && document.cookie.indexOf('formPassword-' + formID) === -1) {
+                searchParams += (searchParams.length > 0 ? '&' : '?') + 'passProtectToken' + '=' + response.token;
+              }
+
+              location.href = baseURL + window.location.pathname + searchParams;
+            } else {
+              toggleError(true, response.error);
+            }
+          }
+        };
+
+
+          var submitFormData = {
+              'formID': formID,
+              'password': password
+          };
+          var formDataPostString;
+          var keys = Object.keys(submitFormData);
+          for (var i = 0; i < keys.length; i++) {
+              formDataPostString += "&" + keys[i] + "=" + encodeURIComponent(submitFormData[keys[i]]);
+          }
+          formDataPostString = formDataPostString.replace(/^\&/, "");
+
+          req.open('POST', baseURL + '/server/check-form-password', true)
+          req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+          req.send(formDataPostString);
+      }
+    }
+
+    eyeButton.addEventListener('click', eyeClickHandler)
+    submitButton.addEventListener('click', submitRequest)
+    inputField.addEventListener('keypress', submitRequest)
+
+    if (window.parent !== window) {
+      window.parent.postMessage('setHeight:' + (document.body.scrollHeight + 60) + ':' + formID, '*');
+    }
+  </script>
+</body>
